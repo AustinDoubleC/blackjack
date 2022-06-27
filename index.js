@@ -154,13 +154,20 @@ const playerDraw = async () =>{
     }
     
 }
+
+const calculateInsurance = ()=>{
+    if(insurance===true && dealerPoint===21){
+        gameEnded ===true
+        console.log("getInsurance")
+        messageText.innerText = "Dealer blackjack"
+        money = money + insurance
+        moneyText.innerText = money
+        resultText.innerText = "You win insurance $"+insurance
+    }
+}
+
 const dealerDraw = async () =>{
-    if (dealerDeck.length >=1){
-        if (dealerDeck.length===2 && dealerPoint===21 && insurance === true){ //dunno why failed
-            money = money + insurance*2
-            moneyText.innerText=money
-            resultText.innerText = "You win insurance amount $"+insurance
-        }
+    if (dealerDeck.length >=2 && gameEnded ===false){
         while (dealerPoint<17 || dealerPoint<playerPoint){
             let toShow = ""
             let result = await fetch(`https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`)
@@ -169,10 +176,11 @@ const dealerDraw = async () =>{
             dealerDeck.forEach(card=>{
             toShow += `<img src=${card.image}>`
             dealerDeckContainer.innerHTML = toShow
-            calculateDealerPoint()
+            calculateDealerPoint()    
     })}
     setTimeout(finalWin,500)
-    }else{
+    }else if (dealerDeck.length ===0){
+        console.log(dealerDeck.length)
         let toShow = ""
         let result = await fetch(`https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`)
         let data = await result.json();
@@ -182,6 +190,19 @@ const dealerDraw = async () =>{
     })
     dealerDeckContainer.innerHTML = toShow
     calculateDealerPoint()
+    }else if (dealerDeck.length ===1){   //handle insurance here
+        console.log(dealerDeck.length)
+        let toShow = ""
+        let result = await fetch(`https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`)
+        let data = await result.json();
+        dealerDeck.push(data.cards[0])
+        dealerDeck.forEach(card=>{
+        toShow += `<img src=${card.image}>`
+    })
+    dealerDeckContainer.innerHTML = toShow
+    calculateDealerPoint()
+    setTimeout(calculateInsurance,500)
+    setTimeout(dealerDraw,1000)
     }
     
 }
@@ -306,7 +327,8 @@ const calculateDealerPoint= ()=>{
                     dealerPoint = dealerPoint - 30
                 }
             }
-    }
+        }
+
 }
 dealerPointDisplay.innerText = "Dealer points: "+dealerPoint
 }

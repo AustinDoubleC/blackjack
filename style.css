@@ -57,11 +57,11 @@ body {
   }
   #money{
     width: 100px;
-    margin-right: 20px;
+    margin-right: 10px;
   }
   #bet{
-    width: 100px;
-    margin-right: 20px;
+    width: 50px;
+    margin-right: 10px;
   }
   #insurance,
   #insuranceNo,
@@ -120,7 +120,7 @@ body {
     text-align: center;
   }
   #insurance-value{
-    width: 100px;
+    width: 50px;
     display: none;
   }
   #insurance-label{
