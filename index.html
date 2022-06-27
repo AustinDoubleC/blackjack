@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/a9d7cdc151.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Blackjack</title>
+</head>
+<body>
+    <div id="table">
+        <div id="info">
+
+        </div>
+        <div id="dealer">
+            <p id="dealerPoint-display"></p>
+            <div id="dealerDeck-container"></div>
+        </div>
+        
+        <div id="message-container">
+            <h3 id="message-text"></h3>
+            <p id="result-text"></p>
+        </div>
+        <div id="player">
+            <div id="playerDeck-container">
+            </div>
+            <p id="playerPoint-display"></p>
+            <div id="money-container">
+                <p>Total money: $</p>
+                <p id="money">100</p>
+                <p>Your bet: $</p>
+                <input type=number id="bet" value=10 />
+                <p id="insurance-label">Insurance amount: $</p>
+                <input type=number id="insurance-value" value=10 />
+            </div>
+        </div>
+        <div id="action">
+            <button id="new-deck">New game</button>
+            <button id="insurance">Yes</button>
+            <button id="insuranceNo">No</button>
+            <button id="draw-player">Yes</button>
+            <button id="turn-end">No</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

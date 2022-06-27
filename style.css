@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+body {
+    font-family: "Lato", sans-serif;
+    background-color: black;
+  }
+
+  #table{
+    background-image:url(image/background.jpg);
+    background-size: cover;
+    background-repeat: none;
+    width: 500px;
+    height: 600px;
+    margin: 0px auto;
+  }
+  #info,
+  #action{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #dealerDeck-container,
+  #playerDeck-container{
+    height: 125px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #message-container{
+    height: 100px;
+    width: 100%;
+    color: white;
+    padding-top: 30px;
+  }
+  #message-text{
+    text-align: center;
+    font-size: 30px;
+
+  }
+  #playerPoint-display,
+  #dealerPoint-display{
+    text-align: center;
+    height: 30px;
+    color: white;
+  }
+
+  #money-container{
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  #money{
+    width: 100px;
+    margin-right: 20px;
+  }
+  #bet{
+    width: 100px;
+    margin-right: 20px;
+  }
+  #insurance,
+  #insuranceNo,
+  #draw-player,
+  #turn-end{
+    display: none;
+  }
+  #insurance,
+  #draw-player
+  {
+    background-color: lawngreen;
+    font-size: 16px;
+    color: white;
+    width:100px;
+    border-radius: 10px;
+    border: none;
+  }
+  #insuranceNo,
+  #turn-end{
+    background-color: red;
+    width:100px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+  }
+  #new-deck{
+    background-color: white;
+    font-size: 20px;
+    width:100px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  #insurance:hover,
+  #draw-player:hover,
+  #insuranceNo:hover,
+  #turn-end:hover,
+  #new-deck:hover  {
+    background-color: orange;
+    cursor: pointer;
+  }
+
+  #insurance:active,
+  #draw-player:active,
+  #insuranceNo:active,
+  #turn-end:active,
+  #new-deck:active{
+    background-color: blue;
+    cursor: pointer
+  }
+
+  #result-text{
+    height: 20px;
+    color: white;
+    text-align: center;
+  }
+  #insurance-value{
+    width: 100px;
+    display: none;
+  }
+  #insurance-label{
+    display: none;
+  }
