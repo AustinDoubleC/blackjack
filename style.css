@@ -12,9 +12,10 @@ body {
     background-image:url(image/background.jpg);
     background-size: cover;
     background-repeat: none;
-    width: 500px;
+    width: 450px;
     height: 600px;
-    margin: 0px auto;
+    margin: 10px auto;
+    border-radius: 10px;
   }
   #info,
   #action{
@@ -29,6 +30,9 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+  #playerDeck-container{
+    margin-bottom: 20px;
   }
   #message-container{
     height: 100px;
@@ -56,12 +60,13 @@ body {
     margin-bottom: 20px;
   }
   #money{
-    width: 100px;
+    width: 30px;
     margin-right: 10px;
   }
   #bet{
-    width: 50px;
+    width: 45px;
     margin-right: 10px;
+
   }
   #insurance,
   #insuranceNo,
@@ -72,12 +77,14 @@ body {
   #insurance,
   #draw-player
   {
-    background-color: lawngreen;
+    background-color: rgb(113, 225, 0);
     font-size: 16px;
     color: white;
     width:100px;
     border-radius: 10px;
     border: none;
+    margin-right: 20px;
+    letter-spacing: 2px;
   }
   #insuranceNo,
   #turn-end{
@@ -88,12 +95,16 @@ body {
     border-radius: 10px;
     border: none;
   }
+  #insuranceNo{
+    letter-spacing: 2px;
+  }
   #new-deck{
-    background-color: white;
+    background-color: rgb(255, 251, 18);
     font-size: 20px;
     width:100px;
     border-radius: 10px;
-    border: none;
+    border: solid 2px yellow;
+    letter-spacing: 2px;
   }
 
   #insurance:hover,
@@ -103,6 +114,7 @@ body {
   #new-deck:hover  {
     background-color: orange;
     cursor: pointer;
+    border: solid 2px rgb(209, 136, 0);
   }
 
   #insurance:active,
@@ -110,7 +122,7 @@ body {
   #insuranceNo:active,
   #turn-end:active,
   #new-deck:active{
-    background-color: blue;
+    font-size: 24px;
     cursor: pointer
   }
 
@@ -120,7 +132,7 @@ body {
     text-align: center;
   }
   #insurance-value{
-    width: 50px;
+    width: 45px;
     display: none;
   }
   #insurance-label{

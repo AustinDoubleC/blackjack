@@ -36,7 +36,8 @@ betText.addEventListener("change",()=>{
 })
 
 const newDeck = async ()=>{
-    resultText.innerText=""
+    if (money >= betText.value){
+        resultText.innerText=""
     gameEnded = false
     money = money-bet
     moneyText.innerText = money
@@ -53,6 +54,10 @@ const newDeck = async ()=>{
     dealerDraw()
     playerDraw()
     btnNewDeck.style.display="none"
+    }else{
+        messageText.innerText="insufficient fund"
+    }
+    
 }
 
 const winOrLoss = ()=>{
@@ -160,9 +165,9 @@ const calculateInsurance = ()=>{
         gameEnded ===true
         console.log("getInsurance")
         messageText.innerText = "Dealer blackjack"
-        money = money + insurance
+        money = parseInt(money) + parseInt(insuranceAmt)*3
         moneyText.innerText = money
-        resultText.innerText = "You win insurance $"+insurance
+        resultText.innerText = "You win insurance $"+insuranceAmt*2
     }
 }
 
@@ -190,7 +195,7 @@ const dealerDraw = async () =>{
     })
     dealerDeckContainer.innerHTML = toShow
     calculateDealerPoint()
-    }else if (dealerDeck.length ===1){   //handle insurance here
+    }else if (dealerDeck.length ===1 && gameEnded ===false){   //handle insurance
         console.log(dealerDeck.length)
         let toShow = ""
         let result = await fetch(`https://deckofcardsapi.com/api/deck/${deckID}/draw/?count=1`)
